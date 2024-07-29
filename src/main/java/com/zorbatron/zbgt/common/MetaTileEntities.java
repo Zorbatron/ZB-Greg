@@ -12,6 +12,7 @@ public class MetaTileEntities {
     public static MetaTileEntityCreativeEnergyHatch CREATIVE_ENERGY_SINK;
     public static MetaTileEntityCreativeReservoirHatch CREATIVE_RESERVOIR_HATCH;
     public static MetaTileEntityCreativeComputationProvider CREATIVE_COMPUTATION_PROVIDER;
+    public static MetaTileEntityBudgetCRIB BUDGET_CRIB;
 
     public static int id = 18000;
 
@@ -24,5 +25,6 @@ public class MetaTileEntities {
                 new MetaTileEntityCreativeReservoirHatch(zbgtId("creative_reservoir_hatch"))); // 18002
         CREATIVE_COMPUTATION_PROVIDER = registerMetaTileEntity(++id,
                 new MetaTileEntityCreativeComputationProvider(zbgtId("creative_computation_provider"))); // 18003
+        BUDGET_CRIB = registerMetaTileEntity(++id, new MetaTileEntityBudgetCRIB(zbgtId("budget_crib"))); // 18004
     }
 }
