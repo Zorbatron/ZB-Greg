@@ -14,8 +14,8 @@ public class ClientHandler {
 
     public static void preInit() {
         WATER_OVERLAY_INFINITY = new SimpleOverlayRenderer("overlay/machine/overlay_water_infinity");
-        CRIB_ACTIVE = new SimpleOverlayRenderer("overlay/machine/OVERLAY_ME_CRAFTING_INPUT_BUFFER");
-        CRIB_INACTIVE = new SimpleOverlayRenderer("overlay/machine/OVERLAY_ME_CRAFTING_INPUT_BUS");
+        CRIB_ACTIVE = new SimpleOverlayRenderer("overlay/machine/overlay_me_crafting_input_buffer");
+        CRIB_INACTIVE = new SimpleOverlayRenderer("overlay/machine/overlay_me_crafting_input_bus");
 
         ITEM_FLUID_OVERLAY = TextureArea.fullImage("textures/gui/widget/item_fluid.png");
         ME_PATTERN_OVERLAY = TextureArea.fullImage("textures/gui/widget/pattern_me.png");
