@@ -82,11 +82,13 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
 
             @Override
             protected void onContentsChanged(int slot) {
-                if (stacks.get(0).getItem() instanceof ICraftingPatternItem) {
-                    setPatternDetails();
-                    ZBGTCore.LOGGER.info("Pattern slot contents changed");
-                } else {
-                    ZBGTCore.LOGGER.warn("Item in Budget CRIB not a pattern!");
+                if (!getWorld().isRemote) {
+                    if (stacks.get(0).getItem() instanceof ICraftingPatternItem) {
+                        ZBGTCore.LOGGER.info("Pattern slot contents changed");
+                        setPatternDetails();
+                    } else {
+                        ZBGTCore.LOGGER.warn("Item in Budget CRIB not a pattern!");
+                    }
                 }
             }
         };
@@ -309,7 +311,10 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
                 .requireNonNull(pattern.getStackInSlot(0).getItem()))
                         .getPatternForItem(pattern.getStackInSlot(0), getWorld());
 
-        if (newPatternDetails.equals(this.patternDetails)) return;
+        if (newPatternDetails.equals(this.patternDetails)) {
+            ZBGTCore.LOGGER.info("Pattern was not new");
+            return;
+        }
 
         this.patternDetails = newPatternDetails;
         this.needPatternSync = true;
