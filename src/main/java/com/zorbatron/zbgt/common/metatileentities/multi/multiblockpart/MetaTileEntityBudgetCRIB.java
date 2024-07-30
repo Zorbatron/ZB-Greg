@@ -36,6 +36,7 @@ import appeng.api.networking.events.MENetworkCraftingPatternChange;
 import appeng.api.util.AECableType;
 import appeng.api.util.AEPartLocation;
 import appeng.api.util.DimensionalCoord;
+import appeng.items.misc.ItemEncodedPattern;
 import appeng.me.GridAccessException;
 import appeng.me.helpers.AENetworkProxy;
 import appeng.me.helpers.IGridProxyable;
@@ -43,6 +44,7 @@ import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregtech.api.GTValues;
+import gregtech.api.capability.IGhostSlotConfigurable;
 import gregtech.api.capability.impl.GhostCircuitItemStackHandler;
 import gregtech.api.capability.impl.ItemHandlerList;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
@@ -59,7 +61,7 @@ import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMulti
 
 public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiablePart
                                       implements IMultiblockAbilityPart<IItemHandlerModifiable>, ICraftingProvider,
-                                      IGridProxyable, IPowerChannelState {
+                                      IGridProxyable, IPowerChannelState, IGhostSlotConfigurable {
 
     @Nullable
     protected GhostCircuitItemStackHandler circuitInventory;
@@ -157,6 +159,22 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
         }
 
         widget.setTooltipText("gregtech.gui.configurator_slot.tooltip", configString);
+    }
+
+    @Override
+    public boolean hasGhostCircuitInventory() {
+        return this.circuitInventory != null;
+    }
+
+    @Override
+    public void setGhostCircuitConfig(int config) {
+        if (this.circuitInventory == null || this.circuitInventory.getCircuitValue() == config) {
+            return;
+        }
+        this.circuitInventory.setCircuitValue(config);
+        if (!getWorld().isRemote) {
+            markDirty();
+        }
     }
 
     @Override
@@ -306,7 +324,7 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
     }
 
     private void setPatternDetails() {
-        // if (!(pattern.getStackInSlot(0).getItem() instanceof ItemEncodedPattern)) return;
+        if (!(pattern.getStackInSlot(0).getItem() instanceof ItemEncodedPattern)) return;
         ICraftingPatternDetails newPatternDetails = ((ICraftingPatternItem) Objects
                 .requireNonNull(pattern.getStackInSlot(0).getItem()))
                         .getPatternForItem(pattern.getStackInSlot(0), getWorld());
@@ -396,9 +414,7 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
         super.readFromNBT(data);
 
         this.pattern.deserializeNBT(data.getCompoundTag("Pattern"));
-        if (data.hasKey("CircuitInventory")) {
-            circuitInventory.read(data);
-        }
+        circuitInventory.read(data);
 
         setPatternDetails();
     }
