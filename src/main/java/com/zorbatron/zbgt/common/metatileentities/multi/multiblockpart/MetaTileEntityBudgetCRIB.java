@@ -22,6 +22,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.zorbatron.zbgt.ZBGTCore;
 import com.zorbatron.zbgt.client.ClientHandler;
 
 import appeng.api.implementations.ICraftingPatternItem;
@@ -35,7 +36,6 @@ import appeng.api.networking.events.MENetworkCraftingPatternChange;
 import appeng.api.util.AECableType;
 import appeng.api.util.AEPartLocation;
 import appeng.api.util.DimensionalCoord;
-import appeng.items.misc.ItemEncodedPattern;
 import appeng.me.GridAccessException;
 import appeng.me.helpers.AENetworkProxy;
 import appeng.me.helpers.IGridProxyable;
@@ -66,7 +66,7 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
     private final ItemStackHandler pattern;
     private ICraftingPatternDetails patternDetails;
     private IItemHandlerModifiable actualImportItems;
-    private boolean needPatternSync = false;
+    private boolean needPatternSync = true;
 
     private @Nullable AENetworkProxy aeProxy;
     private boolean isOnline;
@@ -78,6 +78,16 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
             @Override
             public boolean isItemValid(int slot, @NotNull ItemStack stack) {
                 return stack.getItem() instanceof ICraftingPatternItem;
+            }
+
+            @Override
+            protected void onContentsChanged(int slot) {
+                if (stacks.get(0).getItem() instanceof ICraftingPatternItem) {
+                    setPatternDetails();
+                    ZBGTCore.LOGGER.info("Pattern slot contents changed");
+                } else {
+                    ZBGTCore.LOGGER.warn("Item in Budget CRIB not a pattern!");
+                }
             }
         };
         initializeInventory();
@@ -124,7 +134,8 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
 
         // Pattern slot
         builder.widget(new SlotWidget(pattern, 0, startX + 18 * 5, startY).setBackgroundTexture(GuiTextures.SLOT,
-                ClientHandler.ME_PATTERN_OVERLAY).setChangeListener(this::setPatternDetails));
+                ClientHandler.ME_PATTERN_OVERLAY));
+        // .setChangeListener(this::setPatternDetails));
 
         // Circuit slot
         builder.widget(new GhostCircuitSlotWidget(circuitInventory, 0, startX + 18 * 5, startY + 18 * 3)
@@ -175,6 +186,7 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
         try {
             getProxy().getGrid()
                     .postEvent(new MENetworkCraftingPatternChange(this, getProxy().getNode()));
+            ZBGTCore.LOGGER.info("Posted pattern change to network");
         } catch (GridAccessException ignored) {
             return false;
         }
@@ -288,13 +300,20 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
     public void provideCrafting(ICraftingProviderHelper iCraftingProviderHelper) {
         if (!isActive() || pattern.getStackInSlot(0).isEmpty() || patternDetails == null) return;
         iCraftingProviderHelper.addCraftingOption(this, patternDetails);
+        ZBGTCore.LOGGER.info("Added pattern details to iCraftingProviderHelper");
     }
 
     private void setPatternDetails() {
-        if (!(pattern.getStackInSlot(0).getItem() instanceof ItemEncodedPattern)) return;
-        this.patternDetails = ((ICraftingPatternItem) Objects.requireNonNull(pattern.getStackInSlot(0).getItem()))
-                .getPatternForItem(pattern.getStackInSlot(0), getWorld());
+        // if (!(pattern.getStackInSlot(0).getItem() instanceof ItemEncodedPattern)) return;
+        ICraftingPatternDetails newPatternDetails = ((ICraftingPatternItem) Objects
+                .requireNonNull(pattern.getStackInSlot(0).getItem()))
+                        .getPatternForItem(pattern.getStackInSlot(0), getWorld());
+
+        if (newPatternDetails.equals(this.patternDetails)) return;
+
+        this.patternDetails = newPatternDetails;
         this.needPatternSync = true;
+        ZBGTCore.LOGGER.info("New pattern set");
     }
 
     @Override
