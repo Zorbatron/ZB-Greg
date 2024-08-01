@@ -8,6 +8,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 
+import appeng.me.GridNode;
+import appeng.me.cache.CraftingGridCache;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -324,7 +326,14 @@ public class MetaTileEntityBudgetCRIB extends MetaTileEntityMultiblockNotifiable
     }
 
     private void setPatternDetails() {
-        if (!(pattern.getStackInSlot(0).getItem() instanceof ItemEncodedPattern)) return;
+        if (!(pattern.getStackInSlot(0).getItem() instanceof ItemEncodedPattern) && !pattern.getStackInSlot(0).isEmpty()) return;
+
+        if (pattern.getStackInSlot(0).equals(ItemStack.EMPTY)) {
+            this.needPatternSync = true;
+            ZBGTCore.LOGGER.info("Empty pattern");
+            return;
+        }
+
         ICraftingPatternDetails newPatternDetails = ((ICraftingPatternItem) Objects
                 .requireNonNull(pattern.getStackInSlot(0).getItem()))
                         .getPatternForItem(pattern.getStackInSlot(0), getWorld());
