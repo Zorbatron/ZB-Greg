@@ -12,6 +12,8 @@ import com.zorbatron.zbgt.common.metatileentities.multi.multiblockpart.*;
 import com.zorbatron.zbgt.common.metatileentities.storage.MetaTileEntityCreativeComputationProvider;
 
 import gregtech.api.GTValues;
+import gregtech.api.GregTechAPI;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityLaserHatch;
 
 public class ZBGTMetaTileEntities {
 
@@ -26,6 +28,17 @@ public class ZBGTMetaTileEntities {
     public static MetaTileEntitySuperInputBus SUPER_INPUT_BUS;
     public static MetaTileEntityLargeParallelHatch[] ZBGT_PARALLEL_HATCHES = new MetaTileEntityLargeParallelHatch[7];
     public static MetaTileEntityYOTTankMEHatch YOTTANK_ME_HATCH;
+
+    public static MetaTileEntityLaserHatch[] LASER_INPUT_HATCH_16384 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_INPUT_HATCH_65536 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_INPUT_HATCH_262144 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_INPUT_HATCH_1048576 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_INPUT_HATCH_4194304 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_OUTPUT_HATCH_16384 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_OUTPUT_HATCH_65536 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_OUTPUT_HATCH_262144 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_OUTPUT_HATCH_1048576 = new MetaTileEntityLaserHatch[10]; // IV+
+    public static MetaTileEntityLaserHatch[] LASER_OUTPUT_HATCH_4194304 = new MetaTileEntityLaserHatch[10]; // IV+
 
     public static MetaTileEntityMegaEBF MEGA_EBF;
     public static MetaTileEntityMegaLCR MEGA_LCR;
@@ -48,7 +61,7 @@ public class ZBGTMetaTileEntities {
     public static MetaTileEntityLargeAlloySmelter LARGE_ALLOY_SMELTER;
 
     public static void init() {
-        // 18000-18049 (50) reserved for multiblock parts
+        // 18000-18049 (50) reserved for my multiblock parts
         CREATIVE_ENERGY_SOURCE = registerMetaTileEntity(18000,
                 new MetaTileEntityCreativeEnergyHatch(zbgtId("creative_energy_source"), false));
         CREATIVE_ENERGY_SINK = registerMetaTileEntity(18001,
@@ -141,5 +154,44 @@ public class ZBGTMetaTileEntities {
 
         QUACKER = registerMetaTileEntity(18069,
                 new MetaTileEntityQuacker(zbgtId("quacker")));
+
+        // Holy laser hatches batman
+        int startingId = 18100;
+        int endPos = GregTechAPI.isHighTier() ? LASER_INPUT_HATCH_16384.length - 1 :
+                Math.min(LASER_INPUT_HATCH_16384.length - 1, GTValues.UHV - GTValues.IV);
+        for (int i = 0; i < endPos; i++) {
+            int v = i + GTValues.IV;
+            String voltageName = GTValues.VN[v].toLowerCase();
+            LASER_INPUT_HATCH_16384[i] = registerMetaTileEntity(startingId + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.target_16384a." + voltageName), false, v, 16_384));
+            LASER_OUTPUT_HATCH_16384[i] = registerMetaTileEntity(startingId + 9 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.source_16384a." + voltageName), true, v, 16_384));
+
+            LASER_INPUT_HATCH_65536[i] = registerMetaTileEntity(startingId + 9 * 2 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.source_65536a." + voltageName), false, v, 65_536));
+            LASER_OUTPUT_HATCH_65536[i] = registerMetaTileEntity(startingId + 9 * 3 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.target_65536a." + voltageName), true, v, 65_536));
+
+            LASER_INPUT_HATCH_262144[i] = registerMetaTileEntity(startingId + 9 * 4 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.target_262144a." + voltageName), false, v,
+                            262_144));
+            LASER_OUTPUT_HATCH_262144[i] = registerMetaTileEntity(startingId + 9 * 5 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.source_262144a." + voltageName), true, v,
+                            262_144));
+
+            LASER_INPUT_HATCH_1048576[i] = registerMetaTileEntity(startingId + 9 * 6 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.target_1048576a." + voltageName), false, v,
+                            1_048_576));
+            LASER_OUTPUT_HATCH_1048576[i] = registerMetaTileEntity(startingId + 9 * 7 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.target_1048576a." + voltageName), true, v,
+                            1_048_576));
+
+            LASER_INPUT_HATCH_4194304[i] = registerMetaTileEntity(startingId + 9 * 8 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.target_4194304a." + voltageName), false, v,
+                            4_194_304));
+            LASER_OUTPUT_HATCH_4194304[i] = registerMetaTileEntity(startingId + 9 * 9 + i,
+                    new MetaTileEntityLaserHatch(zbgtId("laser_hatch.source_4194304a." + voltageName), true, v,
+                            4_194_304));
+        }
     }
 }

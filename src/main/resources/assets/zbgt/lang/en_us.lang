@@ -70,6 +70,116 @@ zbgt.machine.yottank_me_hatch.priority=Priority
 zbgt.machine.yottank_me_hatch.sticky.enabled=Disable sticky mode
 zbgt.machine.yottank_me_hatch.sticky.disabled=Enable sticky mode
 
+zbgt.machine.laser_hatch.source_16384a.iv.name=IV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.luv.name=LuV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.zpm.name=ZPM 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.uv.name=UV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.uhv.name=UHV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.uev.name=UEV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.uiv.name=UIV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.uxv.name=UXV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.opv.name=OpV 16,384A Laser Source Hatch
+zbgt.machine.laser_hatch.source_16384a.max.name=MAX 16,384A Laser Source Hatch
+
+zbgt.machine.laser_hatch.target_16384a.iv.name=IV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.luv.name=LuV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.zpm.name=ZPM 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.uv.name=UV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.uhv.name=UHV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.uev.name=UEV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.uiv.name=UIV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.uxv.name=UXV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.opv.name=OpV 16,384A Laser Target Hatch
+zbgt.machine.laser_hatch.target_16384a.max.name=MAX 16,384A Laser Target Hatch
+
+zbgt.machine.laser_hatch.source_65536a.iv.name=IV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.luv.name=LuV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.zpm.name=ZPM 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.uv.name=UV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.uhv.name=UHV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.uev.name=UEV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.uiv.name=UIV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.uxv.name=UXV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.opv.name=OpV 65,536A Laser Source Hatch
+zbgt.machine.laser_hatch.source_65536a.max.name=MAX 65,536A Laser Source Hatch
+
+zbgt.machine.laser_hatch.target_65536a.iv.name=IV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.luv.name=LuV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.zpm.name=ZPM 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.uv.name=UV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.uhv.name=UHV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.uev.name=UEV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.uiv.name=UIV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.uxv.name=UXV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.opv.name=OpV 65,536A Laser Target Hatch
+zbgt.machine.laser_hatch.target_65536a.max.name=MAX 65,536A Laser Target Hatch
+
+zbgt.machine.laser_hatch.source_262144a.iv.name=IV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.luv.name=LuV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.zpm.name=ZPM 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.uv.name=UV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.uhv.name=UHV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.uev.name=UEV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.uiv.name=UIV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.uxv.name=UXV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.opv.name=OpV 262,144A Laser Source Hatch
+zbgt.machine.laser_hatch.source_262144a.max.name=MAX 262,144A Laser Source Hatch
+
+zbgt.machine.laser_hatch.target_262144a.iv.name=IV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.luv.name=LuV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.zpm.name=ZPM 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.uv.name=UV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.uhv.name=UHV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.uev.name=UEV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.uiv.name=UIV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.uxv.name=UXV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.opv.name=OpV 262,144A Laser Target Hatch
+zbgt.machine.laser_hatch.target_262144a.max.name=MAX 262,144A Laser Target Hatch
+
+zbgt.machine.laser_hatch.source_1048576a.iv.name=IV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.luv.name=LuV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.zpm.name=ZPM 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.uv.name=UV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.uhv.name=UHV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.uev.name=UEV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.uiv.name=UIV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.uxv.name=UXV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.opv.name=OpV 1,048,576A Laser Source Hatch
+zbgt.machine.laser_hatch.source_1048576a.max.name=MAX 1,048,576A Laser Source Hatch
+
+zbgt.machine.laser_hatch.target_1048576a.iv.name=IV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.luv.name=LuV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.zpm.name=ZPM 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.uv.name=UV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.uhv.name=UHV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.uev.name=UEV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.uiv.name=UIV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.uxv.name=UXV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.opv.name=OpV 1,048,576A Laser Target Hatch
+zbgt.machine.laser_hatch.target_1048576a.max.name=MAX 1,048,576A Laser Target Hatch
+
+zbgt.machine.laser_hatch.source_4194304a.iv.name=IV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.luv.name=LuV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.zpm.name=ZPM 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.uv.name=UV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.uhv.name=UHV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.uev.name=UEV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.uiv.name=UIV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.uxv.name=UXV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.opv.name=OpV 4,194,304A Laser Source Hatch
+zbgt.machine.laser_hatch.source_4194304a.max.name=MAX 4,194,304A Laser Source Hatch
+
+zbgt.machine.laser_hatch.target_4194304a.iv.name=IV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.luv.name=LuV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.zpm.name=ZPM 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.uv.name=UV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.uhv.name=UHV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.uev.name=UEV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.uiv.name=UIV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.uxv.name=UXV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.opv.name=OpV 4,194,304A Laser Target Hatch
+zbgt.machine.laser_hatch.target_4194304a.max.name=MAX 4,194,304A Laser Target Hatch
+
 
 # Covers
 metaitem.cover.dual_cover.lv.name=LV Dual Cover
