@@ -1,0 +1,37 @@
+# Multiblock parts
+zbgt.machine.creative_energy_source.name=Source D'énergie Créative
+zbgt.machine.creative_energy_source.tooltip=Source D'énergie Pour Des Multiblocs
+zbgt.machine.creative_energy_source.data_stick.name=§oDonnées De Configuration Pour Source D'énergie Créative
+
+zbgt.machine.creative_energy_sink.name=Puit D'énergie Créative
+zbgt.machine.creative_energy_sink.tooltip=Puit D'énergie Infinie Pour Des Multiblocs
+
+zbgt.machine.creative_energy.apply_button=Appliquer Réglages
+zbgt.machine.creative_energy.warning.1=Il est nécessaire de reformer le multibloc pour appliquer les réglages!
+
+zbgt.machine.creative_reservoir_hatch.name=Vanne De Fluides Créative
+zbgt.machine.creative_reservoir_hatch.tooltip=Source De Fluides Infinie Pour Des Multiblocs
+zbgt.machine.creative_reservoir_hatch.data_stick.name=§oDonnées De Configuration Pour Vanne De Fluides Créative
+
+zbgt.machine.creative_computation_provider.name=Fournisseur De Données De Calcul Créative
+zbgt.machine.creative_computation_provider.tooltip=Source Infinie De Données De Calcul (CWU)
+zbgt.machine.creative_computation_provider.average=Demande De CWU/t Moyenne
+zbgt.machine.creative_computation_provider.cwut=Maximum De CWU/t Fournissable
+
+zbgt.machine.creative_item_bus.name=Bus à Objets Créatif
+zbgt.machine.creative_item_bus.tooltip=Source Infinie D'Objets Pour Des Multiblocs
+zbgt.machine.creative_item_bus.data_stick.name=§oDonnées De Configuration Pour Bus à Objets Créatif
+
+zbgt.machine.air_intake_universal.rate=Collecte %,d mB d'air chaque %,d tics
+
+zbgt.machine.air_intake_hatch.name=Vanne De Collecte D'Air
+zbgt.machine.air_intake_hatch.tooltip=Collecte L'Air Ambiant Pour Des Multiblocs
+
+zbgt.machine.extreme_air_intake_hatch.name=Vanne Extrême De Collecte D'Air
+zbgt.machine.extreme_air_intake_hatch.tooltip=Collecte L'Air Ambiant Pour Des Multiblocs
+
+zbgt.machine.single_item_input_bus.name=Bus à Objets Unique
+zbgt.machine.single_item_input_bus.stack_size=§6Taille de pile maximale : §f%,d
+
+zbgt.machine.super_input_bus.name=Super Bus à Objets
+zbgt.machine.super_input_bus.tooltip=N'a que 16 places mais peut tenir jusqu'à MAX_INT d'objets dans chaque place
