@@ -99,19 +99,20 @@ public class CoverPreciseDualCover extends CoverDualCover {
         } else {
             return 0;
         }
-        TransferMode mode = fluidTransferMode;
-        if (mode == TransferMode.TRANSFER_ANY) {
-            return GTTransferUtils.transferFluids(sourceHandler, destHandler, transferLimit,
-                    fluidFilterContainer::testFluidStack);
-        } else if (mode == TransferMode.KEEP_EXACT) {
-            return doKeepExactFluids(transferLimit, sourceHandler, destHandler,
-                    fluidFilterContainer::testFluidStack,
-                    this.fluidTransferAmount);
-        } else if (mode == TransferMode.TRANSFER_EXACT) {
-            return doTransferExactFluids(transferLimit, sourceHandler, destHandler,
-                    fluidFilterContainer::testFluidStack, this.fluidTransferAmount);
+        switch (fluidTransferMode) {
+            case TRANSFER_ANY:
+                return GTTransferUtils.transferFluids(sourceHandler, destHandler, transferLimit,
+                        fluidFilterContainer::testFluidStack);
+            case KEEP_EXACT:
+                return doKeepExactFluids(transferLimit, sourceHandler, destHandler,
+                        fluidFilterContainer::testFluidStack,
+                        this.fluidTransferAmount);
+            case TRANSFER_EXACT:
+                return doTransferExactFluids(transferLimit, sourceHandler, destHandler,
+                        fluidFilterContainer::testFluidStack, this.fluidTransferAmount);
+            default:
+                return 0;
         }
-        return 0;
     }
 
     protected int doTransferExactFluids(int transferLimit, IFluidHandler sourceHandler, IFluidHandler destHandler,
@@ -260,15 +261,16 @@ public class CoverPreciseDualCover extends CoverDualCover {
                 itemTransferMode == TransferMode.KEEP_EXACT) {
             return 0;
         }
-        TransferMode mode = itemTransferMode;
-        if (mode == TransferMode.TRANSFER_ANY) {
-            return doTransferItemsAny(itemHandler, myItemHandler, maxTransferAmount);
-        } else if (mode == TransferMode.TRANSFER_EXACT) {
-            return doTransferExactItems(itemHandler, myItemHandler, maxTransferAmount);
-        } else if (mode == TransferMode.KEEP_EXACT) {
-            return doKeepExactItems(itemHandler, myItemHandler, maxTransferAmount);
+        switch (itemTransferMode) {
+            case TRANSFER_ANY:
+                return doTransferItemsAny(itemHandler, myItemHandler, maxTransferAmount);
+            case TRANSFER_EXACT:
+                return doTransferExactItems(itemHandler, myItemHandler, maxTransferAmount);
+            case KEEP_EXACT:
+                return doKeepExactItems(itemHandler, myItemHandler, maxTransferAmount);
+            default:
+                return 0;
         }
-        return 0;
     }
 
     protected int doTransferExactItems(IItemHandler itemHandler, IItemHandler myItemHandler, int maxTransferAmount) {
